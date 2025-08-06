@@ -1,1 +1,7 @@
-<router-outlet />
+<ng-container *ngIf="authService.currentUser$ | async as user; else loading">
+  <router-outlet />
+</ng-container>
+
+<ng-template #loading>
+  <app-auth-loader />
+</ng-template>

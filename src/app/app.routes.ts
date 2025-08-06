@@ -6,6 +6,7 @@ import { ChefsPage } from './pages/chefs.page';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '*', redirectTo: 'login' },
   { path: 'login', component: LoginPage },
   { path: 'home', component: HomePage, canActivate: [authGuard] },
   { path: 'chefs', component: ChefsPage, canActivate: [authGuard] }
