@@ -1,4 +1,4 @@
-<ng-container *ngIf="authService.currentUser$ | async as user; else loading">
+<ng-container *ngIf="(authService.currentUser$ | async) !== undefined; else loading">
   <router-outlet />
 </ng-container>
 

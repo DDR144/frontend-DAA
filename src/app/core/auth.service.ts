@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor(private auth: Auth) {
     onAuthStateChanged(this.auth, (user) => {
-      this.userSubject.next(user);
+      this.userSubject.next(user ?? null);
     });
   }
 

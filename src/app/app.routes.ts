@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { LoginPage } from './pages/login.page';
-import { HomePage } from './pages/home.page';
+import { LoginPage } from './features/auth/login/login.page';
+import { HomePage } from './features/home/home.page';
 import { authGuard } from './core/auth-guard';
-import { ChefsPage } from './pages/chefs.page';
+import { ChefsPage } from './features/chefs/pages/chefs-list/chefs.page';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },

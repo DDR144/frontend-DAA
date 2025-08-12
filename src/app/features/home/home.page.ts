@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from '../core/auth.service';
-import { LayoutComponent } from '../shared/layout.component';
+import { AuthService } from '../../core/auth.service';
+import { LayoutComponent } from '../../shared/components/layout/layout.component';
 
 @Component({
   standalone: true,

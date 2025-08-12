@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AuthService } from './core/auth.service';
 import { CommonModule } from '@angular/common';
-import { AuthLoaderComponent } from './shared/auth-loader.component';
+import { AuthLoaderComponent } from './shared/components/auth-loader/auth-loader.component';
 
 @Component({
   selector: 'app-root',
