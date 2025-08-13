@@ -1,0 +1,84 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card w-100" style="max-width: 800px">
+    <div class="card-header">
+      <h5 class="mb-0 text-center">Agregar Estudiante</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="row g-3">
+          <!-- Documento -->
+          <div class="col-md-12">
+            <div class="col-md-3">
+              <label class="form-label">Documento</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="documentNumber"
+              />
+              @if (form.get('documentNumber')?.invalid &&
+              form.get('documentNumber')?.touched) {
+              <div class="text-danger small">El documento es obligatorio.</div>
+              }
+            </div>
+          </div>
+          <!-- Nombres -->
+          <div class="col-md-6">
+            <label class="form-label">Nombres</label>
+            <input type="text" class="form-control" formControlName="name" />
+            @if (form.get('name')?.invalid && form.get('name')?.touched) {
+            <div class="text-danger small">El nombre es obligatorio.</div>
+            }
+          </div>
+          <!-- Apellidos -->
+          <div class="col-md-6">
+            <label class="form-label">Apellidos</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="lastName"
+            />
+            @if (form.get('lastName')?.invalid && form.get('lastName')?.touched)
+            {
+            <div class="text-danger small">El apellido es obligatorio.</div>
+            }
+          </div>
+          <!-- Telefono -->
+          <div class="col-md-6">
+            <label class="form-label">Telefono</label>
+            <input type="text" class="form-control" formControlName="phone" />
+            @if (form.get('phone')?.invalid && form.get('phone')?.touched) {
+            <div class="text-danger small">El teléfono es obligatorio.</div>
+            }
+          </div>
+          <!-- Correo -->
+          <div class="col-md-6">
+            <label class="form-label">Correo</label>
+            <input type="text" class="form-control" formControlName="email" />
+            @if (form.get('email')?.invalid && form.get('email')?.touched) {
+            <div class="text-danger small">El correo es obligatorio.</div>
+            }
+          </div>
+        </div>
+        <div class="mt-4 d-flex justify-content-end gap-2">
+          <button type="button" class="btn btn-secondary" (click)="cancel()">
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="form.invalid"
+          >
+            Guardar
+          </button>
+        </div>
+      </form>
+      @if(loading) {
+      <div class="loading-overlay">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Registrando...</span>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

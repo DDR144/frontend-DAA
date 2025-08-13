@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Lista de Estudiantes</h2>
+    <button class="btn btn-primary" (click)="addCustomer()">Agregar</button>
+  </div>
+
+    <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr class="align-middle">
+        <th>#</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (customer of customers(); let i = $index; track customer.uid) {
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.email }}</td>
+        <td class="text-nowrap">
+          <button class="btn btn-sm btn-info me-2" (click)="editCustomer(customer.uid)">
+            Editar
+          </button>
+          <button class="btn btn-sm btn-danger me-2">
+            Eliminar
+          </button>          
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  @if(loading) {
+  <div class="loading-overlay">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+  }
+</div>
