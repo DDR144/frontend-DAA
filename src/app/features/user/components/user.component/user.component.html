@@ -1,0 +1,58 @@
+<div class="">
+  <div class="">
+    <h2>Usuarios del Sistema</h2>
+    <button class="" (click)="addUser()">Agregar Usuario</button>
+  </div>
+
+  <table class="">
+    <thead class="">
+      <tr class="">
+        <th>#</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users(); let i = $index; track user.uid) {
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <span
+            [class.text-success]="user.active"
+            [class.text-danger]="!user.active"
+          >
+            {{ user.active ? "Activo" : "Inactivo" }}
+          </span>
+        </td>
+        <td class="">
+          <button class="" (click)="editUser(user.uid)">
+            Editar
+          </button>
+          <button
+            class=""
+            [ngClass]="user.active ? 'bg-red-600' : 'bg-green-600'"
+            (click)="stateUser(user.uid)"
+          >
+            {{ user.active ? "Desactivar" : "Activar" }}
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  @if(loading) {
+  <div class="">
+    <div class="" role="status">
+      <span class="">Cargando...</span>
+    </div>
+  </div>
+  }
+</div>
