@@ -5,7 +5,7 @@ import { ChefInterface } from '../interfaces/chef.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class chefService {
+export class ChefService {
   private apiUrl = 'http://localhost:8080/api/v1/institute/chef';
 
   constructor(private http: HttpClient) {}
@@ -15,7 +15,7 @@ export class chefService {
   } 
 
   getChefById(id: string): Observable<ChefInterface> {
-    return this.http.get<ChefInterface>(`${this.apiUrl}${id}`);
+    return this.http.get<ChefInterface>(`${this.apiUrl}/${id}`);
   }
 
   createChef(chef: ChefInterface): Observable<ChefInterface> {
@@ -27,8 +27,7 @@ export class chefService {
   }
   
   updateChef(id: string, chef: ChefInterface): Observable<ChefInterface> {
-    chef.active = 1;
-    return this.http.put<ChefInterface>(`${this.apiUrl}${id}`, chef, {
+    return this.http.put<ChefInterface>(`${this.apiUrl}/${id}`, chef, {
       headers: { 'Content-Type': 'application/json' }
     });
   }

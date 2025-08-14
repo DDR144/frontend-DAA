@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { chefService } from '../../services/chef.service';
+import { ChefService } from '../../services/chef.service';
 
 @Component({
   selector: 'app-chef.add.component',
@@ -23,7 +23,7 @@ export class ChefAddComponent {
 
   constructor(
     private fb: FormBuilder,
-    private chefService: chefService,
+    private chefService: ChefService,
     private router: Router,
     private toastr: ToastrService
   ) {
@@ -67,7 +67,7 @@ export class ChefAddComponent {
     this.chefService.createChef(customer).subscribe({
       next: () => {
         this.toastr.success('Chef creado exitosamente');
-        this.router.navigate(['/chefs/list']);
+        this.router.navigate(['/chef/list']);
       },
       error: (error)=> {
         console.error('Error al crear el chef:', error);
@@ -81,7 +81,7 @@ export class ChefAddComponent {
     });
   }
     cancel () {
-    this.router.navigate(['/chefs/list']);
+    this.router.navigate(['/chef/list']);
     }
 
 }

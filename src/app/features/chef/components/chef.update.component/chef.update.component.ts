@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { chefService } from '../../services/chef.service';
+import { ChefService } from '../../services/chef.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ChefInterface } from '../../interfaces/chef.interface';
@@ -19,7 +19,7 @@ export class ChefUpdateComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private chefService: chefService,
+    private chefService: ChefService,
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService
@@ -38,59 +38,63 @@ export class ChefUpdateComponent implements OnInit {
     this.loadData();
   }
 
-  async loadData() {
+  loadData() {
     this.loading = true;
-
     this.chefService.getChefById(this.chefId).subscribe({
-      next: (chef: ChefInterface) => {
-        this.chef = chef;
+      next: (data) => {
+        this.chef = data;
         this.form.patchValue({
-          documentNumber: chef.documentNumber,
-          name: chef.name,
-          lastName: chef.lastName,
-          phone: chef.phone,
-          email: chef.email,          
+          documentNumber: this.chef.documentNumber,
+          name: this.chef.name,
+          lastName: this.chef.lastName,
+          phone: this.chef.phone,
+          email: this.chef.email
         });
-      } ,
+      },
       error: (error) => {
-        console.error('Error al cargar chef:', error);
-        this.toastr.error('Error al cargar los datos del chef');
+        this.toastr.error('Error loading chef data');
+        console.error(error);
       },
       complete: () => {
         this.loading = false;
       }
     });
-  
-}
-  async save() {
+  }
+  save() {
     if (this.form.invalid) {
-      this.toastr.error('Por favor, complete todos los campos requeridos.');
+      this.toastr.error('Por favor completa todos los campos obligatorios.');
       return;
     }
-    this.loading = true;
-    this.form.disable();
-
-    const chef = this.form.value;
-
-    this.chefService.updateChef(this.chefId, chef).subscribe({
+    const updatedChef: ChefInterface = {
+      ...(this.chef ?? {}),
+      ...this.form.value,
+    };
+    this.chefService.updateChef(this.chefId, updatedChef).subscribe({
       next: () => {
-        this.toastr.success('Chef actualizado correctamente');
-        this.router.navigate(['chefs/list']);
+        this.toastr.success(
+          'Chef actualizado correctamente.',
+          '✅ Éxito',
+          {
+            timeOut: 5000, // más tiempo visible (ms)
+            progressBar: true, // barra de progreso
+            progressAnimation: 'increasing', // animación
+            positionClass: 'toast-top-center', // posición en pantalla
+            closeButton: true, // botón para cerrar
+          }
+        );
+        this.router.navigate(['chef/list']);
       },
       error: (error) => {
-        console.error('Error al actualizar chef:', error);
-        this.toastr.error('Error al actualizar los datos del chef');
-      },
-      complete: () => {
-        this.loading = false;
-        this.form.enable();
+        this.toastr.error('Error al actualizar chef');
+        this.toastr.error(error.message);
       }
     });
   }
 
-    cancel() {
-    this.router.navigate(['chefs/list']);
-    
+
+  cancel() {
+    this.router.navigate(['chef/list']);
+
   }
 }
-  
+
