@@ -1,5 +1,6 @@
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 p-6">
-    <!-- Decorative background elements -->
+
+    <!-- ELEMENTOS DECORATIVOS -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div
             class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl">
@@ -13,16 +14,18 @@
     </div>
 
     <div class="w-full max-w-md relative">
-        <!-- Main login card -->
+
+        <!-- LOGIN CARD -->
         <div
             class="bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-8 relative overflow-hidden">
-            <!-- Decorative gradient overlay -->
+
+            <!-- DEGRADADO -->
             <div
                 class="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-purple-50/20 pointer-events-none">
             </div>
 
-            <!-- Header with logo and title -->
-            <div class="relative z-10 text-center mb-8">                
+            <!-- HEADER CON LOGO Y TITULO -->
+            <div class="relative z-10 text-center mb-8">
                 <h2
                     class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                     Bienvenido
@@ -30,9 +33,10 @@
                 <p class="text-gray-500 text-sm">Accede a tu cuenta para continuar</p>
             </div>
 
-            <!-- Login form -->
+            <!-- FORMULARIO DE LOGIN -->
             <form [formGroup]="form" (ngSubmit)="login()" class="relative z-10 space-y-6">
-                <!-- Email field -->
+
+                <!-- EMAIL -->
                 <div class="space-y-2">
                     <label class="text-sm font-semibold text-gray-700 flex items-center gap-2">
                         <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,7 +58,7 @@
                     </div>
                 </div>
 
-                <!-- Password field -->
+                <!-- CONTRASEÑA -->
                 <div class="space-y-2">
                     <label class="text-sm font-semibold text-gray-700 flex items-center gap-2">
                         <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,9 +90,9 @@
                     </div>
                 </div>
 
-                <!-- Error message -->
-                <div *ngIf="error"
-                    class="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3 animate-shake">
+                <!-- MENSAJE DE ERROR -->
+                @if (error) {
+                <div class="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3 animate-shake">
                     <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -96,8 +100,9 @@
                     </svg>
                     <p class="text-red-700 text-sm font-medium">{{ error }}</p>
                 </div>
+                }
 
-                <!-- Submit button -->
+                <!-- BOTON SUBMIT -->
                 <button type="submit" [disabled]="form.invalid"
                     class="group w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
                     <span>Iniciar Sesión</span>
@@ -110,7 +115,7 @@
             </form>
 
 
-            <!-- Sign up link -->
+            <!-- REGISTRO (funcionalidad a futuro) -->
             <div class="relative z-10 text-center mt-8 pt-6 border-t border-gray-200">
                 <p class="text-sm text-gray-600">
                     ¿No tienes una cuenta?
@@ -122,7 +127,7 @@
             </div>
         </div>
 
-        <!-- Footer with app info -->
+        <!-- FOOTER -->
         <div class="text-center mt-8">
             <p class="text-sm text-gray-500">
                 &copy; 2025 DAA. Todos los derechos reservados.

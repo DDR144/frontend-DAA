@@ -4,12 +4,13 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../interfaces/user.interface';
 import { NgClass } from '@angular/common';
+import { LayoutComponent } from '../../../../shared/components/layout/layout.component';
 
 @Component({
   selector: 'app-user.component',
-  imports: [NgClass],
+  imports: [NgClass, LayoutComponent],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
 })
 export class UserComponent {
   private userService = inject(UserService);
@@ -30,20 +31,30 @@ export class UserComponent {
   }
 
   editUser(uid: string) {
-    this.router.navigate([`user/update/${uid}`]);     
+    this.router.navigate([`user/update/${uid}`]);
   }
-  
+
   async stateUser(uid: string) {
     try {
       await this.userService.toggleActive(uid);
-      
-      this.users.update(currentUsers => 
-        currentUsers.map(user => 
+
+      this.users.update((currentUsers) =>
+        currentUsers.map((user) =>
           user.uid === uid ? { ...user, active: !user.active } : user
         )
       );
     } catch (error) {
       this.toastr.error('Error al cambiar estado');
     }
+  }
+
+  // Obtener usuarios activos para las cards de user.component.html 
+  get activeUsersCount(): number {
+    return this.users().filter((u) => u.active).length;
+  }
+
+  // Obtener usuarios inactivos para las cards de user.component.html 
+  get unactiveUsersCount(): number {
+    return this.users().filter((u) => !u.active).length;
   }
 }
