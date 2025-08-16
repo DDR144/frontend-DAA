@@ -4,10 +4,11 @@ import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerInterface } from '../../interfaces/customer.interface';
+import { LayoutComponent } from "../../../../shared/components/layout/layout.component";
 
 @Component({
   selector: 'app-customer.component',
-  imports: [],
+  imports: [NgClass, LayoutComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.scss'
 })
