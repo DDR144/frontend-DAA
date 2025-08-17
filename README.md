@@ -1,59 +1,120 @@
 # FrontendDAA
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+FrontendDAA es una aplicación web desarrollada con Angular que permite la gestión avanzada de usuarios, chefs, clientes y pedidos en el contexto de un sistema administrativo moderno. Su diseño intuitivo y responsivo facilita la administración eficiente de los recursos y usuarios.
 
-## Development server
+## Tabla de Contenidos
 
-To start a local development server, run:
+- [Introducción](#introducción)
+- [Requisitos previos](#requisitos-previos)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Ejemplos de comandos](#ejemplos-de-comandos)
+- [Contribución](#contribución)
+- [Licencia](#licencia)
+
+## Introducción
+
+FrontendDAA es el frontend de un sistema de gestión que utiliza Angular y TailwindCSS para ofrecer una experiencia de usuario moderna y eficiente. Permite registrar, editar y visualizar usuarios, chefs y clientes, así como gestionar pedidos y estadísticas.
+
+## Requisitos previos
+
+Antes de instalar y ejecutar el proyecto, asegúrate de tener instalado:
+
+- [Node.js](https://nodejs.org/) (v18 o superior recomendado)
+- [npm](https://www.npmjs.com/) (v9 o superior)
+- [Angular CLI](https://angular.dev/tools/cli) (v20.x)
+- Git (opcional, para clonar el repositorio)
+
+## Instalación
+
+1. **Clona el repositorio:**
+
+   ```bash
+   git clone https://github.com/DDR144/frontend-DAA.git
+   cd frontend-daa
+   ```
+
+2. **Instala las dependencias:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configura TailwindCSS (opcional):**
+
+   Si necesitas inicializar TailwindCSS:
+
+   ```bash
+   npm run tailwind:init
+   ```
+
+## Uso
+
+### Servidor de desarrollo
+
+Inicia el servidor de desarrollo con:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Luego abre [http://localhost:4200](http://localhost:4200) en tu navegador.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Compilar para producción
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Los archivos compilados se almacenarán en el directorio `dist/`.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Ejecutar pruebas unitarias
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### Ejecutar pruebas end-to-end
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Ejemplos de comandos
 
-## Additional Resources
+- Generar un nuevo componente:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  ```bash
+  ng generate component nombre-componente
+  ```
+
+- Ver todas las opciones de generación:
+
+  ```bash
+  ng generate --help
+  ```
+
+## Contribución
+
+¡Las contribuciones son bienvenidas! Para colaborar:
+
+1. Haz un fork del repositorio.
+2. Crea una rama para tu feature o fix:
+   ```bash
+   git checkout -b mi-feature
+   ```
+3. Realiza tus cambios y haz commit:
+   ```bash
+   git commit -m "Descripción de mi cambio"
+   ```
+4. Haz push a tu rama:
+   ```bash
+   git push origin mi-feature
+   ```
+5. Abre un Pull Request en GitHub.
+
+Por favor, sigue las buenas prácticas de desarrollo y asegúrate de que tu código pase los tests antes de enviar tu contribución.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
