@@ -153,19 +153,6 @@
 
   <!-- LOADING -->
   @if(loading) {
-  <div class="absolute inset-0 left-64 top-20 bg-black/30 flex flex-col items-center justify-center z-10">
-
-    <!-- SPINNER -->
-    <div class="w-16 h-16 border-4 border-transparent rounded-full relative">
-      <div
-        class="absolute inset-0 border-4 border-t-blue-500 border-r-purple-500 border-transparent rounded-full animate-spin">
-      </div>
-      <div
-        class="absolute inset-1 border-2 border-t-purple-400 border-l-blue-400 border-transparent rounded-full animate-spin"
-        style="animation-direction: reverse; animation-duration: 1.5s;"></div>
-    </div>
-    
-    <p class="mt-4 text-gray-600 font-semibold text-xl">Cargando clientes...</p>
-  </div>
+    <app-loader [entity]="'Clientes'" />
   }
 </app-layout>

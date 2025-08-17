@@ -5,10 +5,11 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerInterface } from '../../interfaces/customer.interface';
 import { LayoutComponent } from "../../../../shared/components/layout/layout.component";
+import { Loader } from '../../../../shared/components/loader/loader';
 
 @Component({
   selector: 'app-customer.component',
-  imports: [NgClass, LayoutComponent],
+  imports: [NgClass, LayoutComponent, Loader],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.scss'
 })

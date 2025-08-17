@@ -5,10 +5,11 @@ import { ToastrService } from 'ngx-toastr';
 import { User } from '../../interfaces/user.interface';
 import { NgClass } from '@angular/common';
 import { LayoutComponent } from '../../../../shared/components/layout/layout.component';
+import { Loader } from '../../../../shared/components/loader/loader';
 
 @Component({
   selector: 'app-user.component',
-  imports: [NgClass, LayoutComponent],
+  imports: [NgClass, LayoutComponent, Loader],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })

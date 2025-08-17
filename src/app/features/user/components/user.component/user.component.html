@@ -270,4 +270,7 @@
       </table>
     </div>
   </div>
+  @if (loading) {
+    <app-loader [entity]="'Usuarios'" />
+  }
 </app-layout>
