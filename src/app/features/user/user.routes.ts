@@ -8,18 +8,18 @@ export const USERS_ROUTES: Routes = [
         canActivate: [AuthGuard] 
     },
     {
+        path: 'list',
+        loadComponent: () => import('./components/user.component/user.component').then(m => m.UserComponent),
+        canActivate: [AuthGuard] 
+    },
+    {
         path: 'register',
         loadComponent: () => import('./components/user.add.component/user.add.component').then(m => m.UserAddComponent),
         canActivate: [AuthGuard] 
-    },
-    // {
-    //     path: 'add',
-    //     loadComponent: () => import('./components/user.add.component/user.add.component').then(m => m.UserAddComponent),
-    //     canActivate: [AuthGuard] 
-    // },
-    // {
-    //     path: 'update/:uid',
-    //     loadComponent: () => import('./components/user.update.component/user.update.component').then(m => m.UserUpdateComponent),
-    //     canActivate: [AuthGuard] 
-    // }
+    },    
+    {
+        path: 'update/:uid',
+        loadComponent: () => import('./components/user.update.component/user.update.component').then(m => m.UserUpdateComponent),
+        canActivate: [AuthGuard] 
+    }
 ]

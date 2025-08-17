@@ -39,7 +39,7 @@ export class UserAddComponent {
 
   async save() {
     if (this.form.invalid) {
-      this.toastr.error('Error formulario contiene errores');
+      this.toastr.error('Formulario inválido');
       return;
     }
     this.loading = true;
@@ -69,6 +69,6 @@ export class UserAddComponent {
   }
 
   cancel() {
-    this.router.navigate(['user'])
+    this.router.navigate(['user/list'])
   }
 }
