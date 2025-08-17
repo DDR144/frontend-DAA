@@ -4,10 +4,12 @@ import { ChefService } from '../../services/chef.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ChefInterface } from '../../interfaces/chef.interface';
+import { LayoutComponent } from '../../../../shared/components/layout/layout.component';
+import { Loader } from '../../../../shared/components/loader/loader';
 
 @Component({
   selector: 'app-chef.component',
-  imports: [],
+  imports: [NgClass, LayoutComponent, Loader],
   templateUrl: './chef.component.html',
   styleUrl: './chef.component.css'
 })
