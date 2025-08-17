@@ -28,7 +28,7 @@ export class CustomerComponent {
         this.loading = false;
       },
       error: (err) => {
-        this.toastr.error('Error al obtener estudiantes');
+        this.toastr.error('Error al obtener clientes');
         console.log(err);
       }
     });

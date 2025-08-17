@@ -65,12 +65,12 @@ export class CustomerAddComponent {
 
     this.customerService.createCustomer(customer).subscribe({
       next: () => {
-        this.toastr.success('Estudiante registrado correctamente');
+        this.toastr.success('Cliente registrado correctamente');
         this.router.navigate(['customer/list']);
       },
       error: (error) => {
-        console.error('Error al registrar estudiante:', error);
-        const backendMessage = error?.error?.message || 'Error al registrar estudiante';
+        console.error('Error al registrar cliente:', error);
+        const backendMessage = error?.error?.message || 'Error al registrar cliente';
         this.toastr.error(backendMessage);
       },
       complete: () => {

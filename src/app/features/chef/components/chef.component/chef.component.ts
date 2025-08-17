@@ -1,9 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { ChefService } from '../../services/chef.service';
-import { ChefInterface } from '../../interfaces/chef.interface';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ChefInterface } from '../../interfaces/chef.interface';
 
 @Component({
   selector: 'app-chef.component',

@@ -66,22 +66,21 @@ export class ChefAddComponent {
 
     this.chefService.createChef(customer).subscribe({
       next: () => {
-        this.toastr.success('Chef creado exitosamente');
+        this.toastr.success('Chef registrado exitosamente');
         this.router.navigate(['/chef/list']);
       },
       error: (error)=> {
-        console.error('Error al crear el chef:', error);
-        const backendMessage = error?.error?.message || 'Error al crear el chef';
+        console.error('Error al registrar chef:', error);
+        const backendMessage = error?.error?.message || 'Error al registrar chef';
         this.toastr.error(backendMessage);
       },
       complete: () => {
-        this.loading = false;
         this.form.enable();
+        this.loading = false;
       }
     });
   }
     cancel () {
     this.router.navigate(['/chef/list']);
     }
-
 }
