@@ -4,6 +4,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
 
@@ -30,5 +31,9 @@ export class AuthService {
 
   logout() {
     return signOut(this.auth);
+  }
+
+  register(email: string, password: string) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 }

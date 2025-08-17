@@ -28,7 +28,7 @@ export class UserComponent {
   }
 
   addUser() {
-    this.router.navigate(['user/add']);
+    this.router.navigate(['user/register']);
   }
 
   editUser(uid: string) {

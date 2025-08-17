@@ -7,11 +7,11 @@ export const USERS_ROUTES: Routes = [
         loadComponent: () => import('./components/user.component/user.component').then(m => m.UserComponent),
         canActivate: [AuthGuard] 
     },
-    // {
-    //     path: 'register',
-    //     loadComponent: () => import('./components/user/user.component').then(m => m.UserComponent),
-    //     canActivate: [AuthGuard] 
-    // },
+    {
+        path: 'register',
+        loadComponent: () => import('./components/user.add.component/user.add.component').then(m => m.UserAddComponent),
+        canActivate: [AuthGuard] 
+    },
     // {
     //     path: 'add',
     //     loadComponent: () => import('./components/user.add.component/user.add.component').then(m => m.UserAddComponent),
