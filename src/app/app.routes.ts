@@ -25,4 +25,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/user/user.routes').then((m) => m.USERS_ROUTES),
   },
+  {
+    path: 'dish',
+    loadChildren: () =>
+      import('./features/dish/dish.routes').then((m) => m.DISH_ROUTES),
+  }
 ];
