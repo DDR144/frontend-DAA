@@ -6,7 +6,7 @@ import { DishInterface } from '../interfaces/dish.interface';
   providedIn: 'root',
 })
 export class DishService {
-  private apiUrl = 'http://localhost:8080/api/v1/institute/order/';
+  private apiUrl = 'http://localhost:8083/api/v1/institute/order/dish/';
 
   constructor(private http: HttpClient) {}
 
