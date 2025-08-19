@@ -25,16 +25,16 @@ export class UserAddComponent {
   , private userService: UserService
   ) {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      role: ['', Validators.required],
+      name: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      role: ['', [Validators.required]],
       password: ['', [
         Validators.required,
         Validators.minLength(6),
         Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/)
       ]],
-    })
+    });
   }
 
   async save() {
@@ -59,7 +59,7 @@ export class UserAddComponent {
       };
       await this.userService.save(userToSave);
       this.toastr.success('Usuario registrado correctamente');
-      this.router.navigate(['user/register']);
+      this.router.navigate(['user/list']);
     } catch (error: any) {
       this.toastr.error('Error al registrar usuario: ' + (error?.message || error));
     } finally {
